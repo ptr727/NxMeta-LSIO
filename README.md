@@ -30,8 +30,8 @@ Refer to the [DWSpectrum-LSIO project](https://github.com/ptr727/DWSpectrum-LSIO
   - If storage is not listed, attach to the container and run `cat /proc/mounts` to get a list of all the filesystem types, make a note of the filesystem types that are not showing up in storage. E.g. `grpcfuse /media fuse.grpcfuse rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other,max_read=1048576 0 0` on Docker for Windows, use `fuse.grpcfuse`.
   - Access the `additionalLocalFsTypes` setting on the advanced server settings page. E.g. `http://localhost:7001/static/index.html#/advanced`.
   - Add `fuse.grpcfuse` for Docker for Windows and `fuse.shfs` for Unraid, e.g. `fuse.grpcfuse, fuse.shfs`.
-  - Save the settings, reboot, and verify that storage is no available.
-  - TODO: Figure out where the settings are stored, it does not appear to be in `etc/mediaserver.conf`, so that we can inject the settings during container creation.
+  - Save the settings, reboot, and verify that storage is now available.
+  - TODO: Figure out where the settings are stored, so that we can inject the settings during container creation, it does not appear to be in `etc/mediaserver.conf`?
 - A few notes on 4.0 vs. 4.1 installer changes:
   - Python was removed from the dependencies list, and `config_helper.py` was replaced with `config_helper.sh`.
   - Still not fixed: The calculation of `VMS_DIR=$(dirname $(dirname "${BASH_SOURCE[0]}"))` in `../bin/mediaserver` results in bad paths e.g. `start-stop-daemon: unable to stat ./bin/./bin/mediaserver-bin (No such file or directory)`.
