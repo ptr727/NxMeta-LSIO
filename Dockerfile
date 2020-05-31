@@ -24,6 +24,8 @@ RUN apt-get update \
         wget \
 # Install nano and mc for making navigating the container easier
         nano mc \
+# Install strace for debugging        
+        strace \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
