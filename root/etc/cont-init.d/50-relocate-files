@@ -27,21 +27,3 @@ then
   rm -rf /opt/${COMPANY_NAME}/mediaserver/etc && \
   ln -s /config/etc /opt/${COMPANY_NAME}/mediaserver/etc
 fi
-
-# Make sure that /media exists
-if [[ ! -d /media ]]
-then
-  echo "/media does not exist, creating"
-  mkdir -p /media && \
-  chown -R ${COMPANY_NAME}:${COMPANY_NAME} /media
-fi
-
-# Make sure that ../mediaserver/var/data links to /media
-if [[ ! -h /opt/${COMPANY_NAME}/mediaserver/var/data ]]
-then
-  echo "../mediaserver/var/data is not a link, linking"
-  rm -rf /opt/${COMPANY_NAME}/mediaserver/var/data && \
-  ln -s /media /opt/${COMPANY_NAME}/mediaserver/var/data
-fi
-
-# Nothing to do for /archive

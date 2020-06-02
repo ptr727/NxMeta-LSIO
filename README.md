@@ -24,6 +24,7 @@ Refer to the [DWSpectrum-LSIO project](https://github.com/ptr727/DWSpectrum-LSIO
 
 - Sign up for early access releases at the [developer portal](https://support.networkoptix.com/hc/en-us/articles/360046713714-Get-an-Nx-Meta-Build)
 - Beta releases are listed in the [patches download](https://meta.nxvms.com/downloads/patches) section.
+- The [updated Network Optix Docker project](https://github.com/networkoptix/nx_open_integrations/tree/master/docker) states that `systemd` is no longer required.
 - The upcoming version 4.1 will include the ability to specify additional storage filesystems.
   - Access the server storage page, and verify that all mounted storage is listed, e.g. `http://localhost:7001/static/index.html#/info`.
   - If storage is not listed, attach to the container and run `cat /proc/mounts` to get a list of all the filesystem types, make a note of the filesystem types that are not showing up in storage, e.g. `grpcfuse /media fuse.grpcfuse rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other,max_read=1048576 0 0` on Docker for Windows, use `fuse.grpcfuse`.

@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-# Set ownership permissions
-# Do not modify media or archive ownership
+# Set directory ownership permissions
+# Do not modify /media or /archive ownership it takes too long to start with many files
 chown -R ${COMPANY_NAME}:${COMPANY_NAME} \
         /config
