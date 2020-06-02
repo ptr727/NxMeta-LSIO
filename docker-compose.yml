@@ -4,14 +4,14 @@ services:
   nxmeta:
     image: nxmeta-lsio
     container_name: nxmeta-lsio-test-container
+    build: .
+    restart: unless-stopped
     environment:
       - TZ=Americas/Los_Angeles
-    build: .
     volumes:
       - ./.mount/config:/config
       - ./.mount/media:/media
       - ./.mount/archive:/archive
-    restart: unless-stopped
     network_mode: bridge
     ports:
       - 7001:7001
