@@ -19,12 +19,13 @@ LABEL name="NxMeta-LSIO" \
 
 # Install tools
 RUN apt-get update \
-    && apt-get install --yes \
+    && apt-get install --no-install-recommends --yes \
         mc \
         nano \
         strace \
         wget \
     && apt-get clean \
+    && apt-get autoremove --purge \
     && rm -rf /var/lib/apt/lists/*
 
 # Download the DEB installer file
@@ -43,17 +44,20 @@ RUN usermod -l ${COMPANY_NAME} abc \
 
 # Install the mediaserver
 # Add missing dependencies (gdb)
-# Remove root tool to prevent it from being used in service mode
+# Remove the root tool to prevent it from being used in service mode
 RUN apt-get update \
-    && apt-get install --yes \
+    && apt-get install --no-install-recommends --yes \
         gdb \
         ./vms_server.deb \
     && apt-get clean \
+    && apt-get autoremove --purge \
     && rm -rf /opt/${COMPANY_NAME}/mediaserver/bin/root-tool-bin \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf ./vms_server.deb
 
-# Cleanup
-RUN rm -rf ./vms_server.deb
+# Set ownership permissions
+RUN chown --verbose ${COMPANY_NAME}:${COMPANY_NAME} /opt/${COMPANY_NAME}/mediaserver/bin \
+    && chown --verbose ${COMPANY_NAME}:${COMPANY_NAME} /opt/${COMPANY_NAME}/mediaserver/bin/external.dat
 
 # Copy etc init and services files
 # The scripts are using the ${COMPANY_NAME} global environment variable
