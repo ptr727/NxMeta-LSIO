@@ -13,7 +13,6 @@
   <WebUI>http://[IP]:[PORT:7001]</WebUI>
   <TemplateURL>https://github.com/ptr727/NxMeta-LSIO/Unraid</TemplateURL>
   <Icon>https://github.com/ptr727/NxMeta-LSIO/raw/master/Unraid/NxMeta.png</Icon>
-  <ExtraParams>--mac-address=31:65:88:bf:cf:65</ExtraParams>
   <Data>
     <Volume>
       <HostDir>/mnt/user/appdata/nxmeta-lsio</HostDir>

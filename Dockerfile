@@ -1,9 +1,11 @@
-# Use LSIO Ubuntu Bionic version
+# Use LSIO Ubuntu Bionic
 FROM lsiobase/ubuntu:bionic
 
+# Sign up for program participation at the developer portal:
+# https://support.networkoptix.com/hc/en-us/articles/360046713714-Get-an-Nx-Meta-Build
 # Beta versions are listed under the patches section:
 # https://meta.nxvms.com/downloads/patches
-ARG DOWNLOAD_URL="http://updates.networkoptix.com/metavms/30731/linux/metavms-server-4.1.0.30731-linux64-beta-prod.deb"
+ARG DOWNLOAD_URL="https://updates.networkoptix.com/metavms/30731/linux/metavms-server-4.1.0.30731-linux64-beta-prod.deb"
 ARG DOWNLOAD_VERSION="4.1.0.30731 R5"
 
 # Prevent EULA and confirmation prompts in installers
