@@ -1,9 +1,9 @@
 version: "3.7"
 
 services:
-  nxmeta:
+  nxmeta-lsio:
     image: nxmeta-lsio
-    container_name: nxmeta-lsio-test-container
+    container_name: nxmeta-lsio-test
     build: .
     restart: unless-stopped
     environment:

@@ -1,9 +1,9 @@
 version: "3.7"
 
 services:
-  dwspectrum:
+  nxmeta-lsio:
     image: nxmeta-lsio
-    container_name: nxmeta-zfs
+    container_name: nxmeta-lsio-zfs
     build: .
     restart: unless-stopped
     environment:
@@ -17,17 +17,17 @@ services:
     network_mode: host
 
 volumes:
-  nxmeta_config:
+  nxmeta-lsio_config:
     driver_opts:
       type: none
       device: /mnt/nxmeta/config
       o: bind
-  nxmeta_media:
+  nxmeta-lsio_media:
     driver_opts:
       type: none
       device: /mnt/nxmeta/media
       o: bind
-  nxmeta_archive:
+  nxmeta-lsio_archive:
     driver_opts:
       type: none
       device: /mnt/nxmeta/archive
